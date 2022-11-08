@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+		<ui-gmap-google-map bounds="map.bounds" center="map.center" draggable="true" options="options" zoom="map.zoom">
+			<ui-gmap-markers coords="'self'" icon="'icon'" models="maps" events="events">
+			</ui-gmap-markers>
+			<ui-gmap-marker idKey="0" coords="coords" icon="icon" options="opts">
+			</ui-gmap-marker>
+		</ui-gmap-google-map>
+		<div class="details">
+			<h5>{{selected.title}}</h5>
+			<img src="{{selected.url}}" alt="">
+		</div>
+	</div>
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<div class="photos-list">
+			<div ng-click='selectPhoto(photo)' ng-repeat='photo in maps' class="tile">
+				<img ng-src='{{selected == photo && icon || photo.icon}}' class="icon" />
+				<img ng-src='{{photo.url}}' class="photo"/>
+				<p>{{photo.title}}</p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,125 @@
+<div class="panel panel-default" ng-controller="mapToolCtrl">
+    <div class="panel-body">
+        <tabset type="pills">
+            <tab heading="Maps Tool">
+                <form action="" class="form-inline" role="form">
+                    <div class="form-group tpad10">
+                        <label for="maps">Maps</label>
+                        <select class="form-control input-sm" ng-change="goMap(map)" ng-model="map" ng-options="obj.id as obj.name for obj in maps">
+                        </select>
+                    </div>
+                </form>
+            </tab>
+            <tab heading="Add Markers">
+                <div style="float:left;">
+                    <div style="margin-top:5px;margin-bottom:7px">
+                        <span class="labelname">Marker Name:</span>
+                        <input id="Marker_Name" name="Marker_Name" type="text" width="250px;"/>
+                    </div>
+                    <div>
+                        <span class="labelvalue">Latitude:</span>
+                        <input id="Marker_Latitude" name="Marker_Latitude" type="text"/>
+                        <span class="labelvalue">Longitude</span>
+                        <input id="Marker_Longitude" name="Marker_Longitude" type="text"/>
+                    </div>
+                </div>
+                <div style="float:left;">
+                    <span class="labelname">Marker Type:</span>
+                    <input checked="checked" id="marker_monument" name="markertype" type="radio"/>
+                    Monument
+                    <input id="marker_xxx" name="markertype" type="radio"/>
+                    Off
+                </div>
+            </tab>
+            <tab heading="Wikipedia">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="top" width="41%">
+                            <div>
+                                <div style="margin-top:5px;margin-bottom:7px;">
+                                    <span class="labelname">Wikipedia Article Search</span>
+                                </div>
+                                <div style="margin-top:5px;margin-bottom:10px;">
+                                    <span class="labelvalue">Search Type:</span>
+                                    <select class="boxformwh" id="seachType" name="seachType">
+                                        <option selected="selected" value="Radius">Radius</option>
+                                        <option value="Bounding_Box">Bounding Box</option>
+                                    </select>
+                                </div>
+                                <div id="RadiusSearch">
+                                    <div>
+                                        <span class="labelvalue" style="margin-right:5px;">Latitude</span>
+                                        <input id="WikipediaSearch_Latitude" name="WikipediaSearch.Latitude" type="text"/>
+                                        <span class="labelvalue" style="margin-right: 5px;">Longitude</span>
+                                        <input id="WikipediaSearch_Longitude" name="WikipediaSearch.Longitude" type="text"/>
+                                    </div>
+                                    <div style="margin-top:5px;">
+                                        <span class="labelvalue" style="margin-right:5px;">Radius</span>
+                                        <select class="boxformwh" id="WikipediaSearch_Radius" name="WikipediaSearch.Radius">
+                                            <option selected="selected" value="500">500m</option>
+                                            <option value="1000">1Km</option>
+                                            <option value="2000">2Km</option>
+                                            <option value="5000">5Km</option>
+                                            <option value="10000">10Km</option>
+                                        </select>
+                                        <span style="margin-right:2px;margin-left:15px;">Display Circle:</span>
+                                        <input checked="checked" id="display_on" name="display_circle" type="radio"/>
+                                        On
+                                        <input id="display_off" name="display_circle" type="radio"/>
+                                        Off
+                                    </div>
+                                </div>
+                                <div id="BoundingBoxSearch" style="display:none;">
+                                    <div style="margin-bottom:3px;">
+                                        <span class="labelname">South West</span>
+                                    </div>
+                                    <div>
+                                        <span class="labelvalue" style="margin-right: 5px;">Latitude</span>
+                                        <input id="SouthWest_Latitude" name="SouthWest_Latitude" type="text"/>
+                                        <span class="labelvalue" style="margin-right: 5px;">Longitude</span>
+                                        <input id="SouthWest_Longitude" name="SouthWest_Longitude" type="text"/>
+                                    </div>
+                                    <div style="margin-top:3px;margin-bottom:3px;">
+                                        <span class="labelname">North East</span>
+                                    </div>
+                                    <div>
+                                        <span class="labelvalue" style="margin-right: 5px;">Latitude</span>
+                                        <input id="NorthEast_Latitude" name="NorthEast_Latitude" type="text"/>
+                                        <span class="labelvalue" style="margin-right: 5px;">Longitude</span>
+                                        <input id="NorthEast_Longitude" name="NorthEast_Longitude" type="text"/>
+                                    </div>
+                                </div>
+                                <div style="margin-top:10px;margin-bottom:10px;">
+                                    <span style="margin-left:5px;"><input id="wikipedialookup" name="wikipedialookup" type="submit" value="Wikipedia Lookup"/></span>
+                                    <span style="margin-left:5px;"><input id="wikipediaclearup" name="wikipediaclearup" type="submit" value="Clear"/></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td align="left" valign="top" width="56%">
+                            <table border="0" cellpadding="0" cellspacing="0" id="wikiResults" width="100%">
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </tab>
+            <tab heading="Monuments">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="top" width="98%">
+                            Monuments
+                        </td>
+                    </tr>
+                </table>
+            </tab>
+            <tab heading="Overlays">
+                <form action="" class="form-inline" role="form">
+                    <div class="form-group">
+                        <label for="overlays">Overlays</label>
+                        <select class="form-control input-sm" ng-change="goFeature(feature)" ng-model="feature" ng-options="obj.id as obj.name for obj in features">
+                        </select>
+                    </div>
+                </form>
+            </tab>
+        </tabset>
+    </div>
+</div>
